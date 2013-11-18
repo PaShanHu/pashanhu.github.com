@@ -34,7 +34,8 @@ article,header,footer,section{
 	display: block;
 }
 article{
-	max-width: 768px;
+	min-width: 768px;
+	max-width: 960px;
 	margin: 0 auto;
 }
 aside{
@@ -42,13 +43,14 @@ aside{
 	float: left;
 	img{
 		width: 70%;
-		margin: 15%;
+		margin: 15% 15% 1%;
 		.border-radius(50%);
 	}
 	ul.contact{
 		width: 70%;
 		margin: 1% 15%;
 		list-style: none;
+		overflow: hidden;
 		li{
 			float: left;
 			width: 50%;
@@ -58,20 +60,33 @@ aside{
 				height: 20px;
 				padding: 2px;
 			}
-			&:first-child{
-				span{
-					float: right;
+			span.mail{
+				float: right;
+				&:after{
+					content: '\e604';
 				}
 			}
-			&:last-child{
-				span{
-					float: left;
+			span.git{
+				float: left;
+				&:after{
+					content: '\e60a';
 				}
 			}
 		}
 	}
+	.user{
+		p{
+			padding-bottom: 2%;
+			border-bottom: 1px solid #999;
+		}
+	}
+	.description{
+		p{
+			margin-top: 3%;
+		}
+	}
 	p{
-		width: 70%;
-		margin: 1% 15%;
+		width: 100%;
+		text-align: center;
 	}
 }
