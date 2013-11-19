@@ -22,6 +22,18 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+	font-family: 'brandon';
+	src:url('../font/brandon-light.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'title';
+	src:url('../font/title-font.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 .font-icon{
 	font-family: 'icomoon';
 }
@@ -33,6 +45,7 @@ body{
 	min-width: 768px;
 	max-width: 960px;
 	margin: 0 auto;
+	border-top: 4px solid #cc4b4b;
 }
 article,header,footer,section{
 	display: block;
@@ -49,23 +62,28 @@ article{
 			color: #333;
 			text-transform: uppercase;
 			padding: 0 0 4px;
-			border-bottom: 1px solid #999;
+			border-bottom: 1px solid #cc4b4b;
+			font-family: 'title';
+			font-size: 1.17em;
 		}
 		ul.projects{
 			padding-left: 36px;
 			margin-top: 12px;
 			margin-bottom: 12px;
-			font-family: 'Trebuchet MS','SimHei';
+			font-family: 'MuseoSans-300',helvetica,arial,sans-serif;
 			font-size: 16px;
-			li{
-				padding: 4px 0;
+			&>li{
+				padding: 4px 0 8px;
 			}
 			a{
 				text-decoration: none;
-				color: #444;
+				color: #666;
 			}
 			ul.sub-item{
 				padding-left: 24px;
+				li{
+					padding: 4px 0;
+				}
 			}
 		}
 	}
@@ -115,7 +133,7 @@ aside{
 	.user{
 		p{
 			padding-bottom: 4%;
-			border-bottom: 1px solid #999;
+			border-bottom: 1px solid #cc4b4b;
 		}
 	}
 	.description{

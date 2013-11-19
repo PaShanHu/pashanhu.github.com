@@ -2,23 +2,6 @@
 layout: default
 title: Jerry Yang
 ---
-
-  <!-- <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Pashanhu.github.com : Jerry's Blog" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Pashanhu.github.com</title> -->
-<!-- <h2>{{ page.title }}</h2>
-<p>最新文章</p>
-<ul>
-    {% for post in site.posts %}
-        <li>{{ post.date | date_to_string }}<a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
-        </li>
-    {% endfor %}
-</ul> -->
 <article>
     <section>
         <h3>projects</h3>
@@ -40,6 +23,11 @@ title: Jerry Yang
     </section>
     <section>
         <h3>posts</h3>
+        <ul class='posts'>
+    　　　　{% for post in site.posts %}
+    　　　　　　<li>{{ post.postDate }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    　　　　{% endfor %}
+    　　</ul>
     </section>
 </article>
 <aside>
@@ -47,7 +35,7 @@ title: Jerry Yang
         <img src="images/h1.jpg">
         <ul class='contact'>
             <li><a class='font-icon mail' href='mailto:pashanhu6@hotmail.com'></a></li>
-            <li><a class='font-icon git' href='http://pashanhu.github.io/'></a></li>
+            <li><a class='font-icon git' href='https://github.com/PaShanHu'></a></li>
         </ul>
         <p>UI设计-前端-程序员</p>
     </div>
