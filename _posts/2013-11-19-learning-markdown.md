@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-default
 title: Markdown学习与使用
 ---
 
