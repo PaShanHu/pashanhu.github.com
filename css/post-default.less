@@ -6,22 +6,6 @@
  * @version 0.0.1
  */
 @import 'css3.less';
-
-*{
-	padding: 0;
-	margin: 0;
-}
-
-@font-face {
-	font-family: 'icomoon';
-	src:url('../font/icomoon.eot');
-	src:url('../font/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('../font/icomoon.ttf') format('truetype'),
-		url('../font/icomoon.woff') format('woff'),
-		url('../font/icomoon.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 @font-face {
 	font-family: 'brandon';
 	src:url('../font/brandon-light.woff') format('woff');
@@ -34,62 +18,11 @@
 	font-weight: normal;
 	font-style: normal;
 }
-.font-icon{
-	font-family: 'icomoon';
-}
-
-.code,code{
-	padding: 4px 8px;
-	margin: 4px 0;
-	display: inline-block;
-	text-indent: 0;
-	.border-radius(4px);
-	background-color: rgba(192, 192, 192, 0.5);
-	font-family: 'consolas','monaco';
-	font-size: 14px;
-	color: #333;
-}
-.code.inline{
-	display: inline-block;
-}
-.code.block{
-	display: block;
-}
-.code.emphase{
-	color: #cc4b4b;
-	background-color: rgba(192, 192, 192, 0.6);
-}
-
-.title{
-	margin-top: 12px;
-	color: #333;
-}
-.subtitle{
-	text-indent: 28px;
-	font-size: 14px;
-	color: #444;
-}
-.name{
-	display: inline-block;
-	padding: 4px;
-	margin: 2px 0;
-	text-indent: 0;
-}
-a{
-	color: #199880;
-	display: inline-block;
-	text-indent: 0;
-	margin: 2px;
-	text-decoration: none;
-	&:hover{
-		color: #86ca6f;
-	}
-}
 
 body{
 	font-family: 'Microsoft Yahei','SimHei',arial;
 	font-size: 14px;
-	color: #888;
+	color: #666;
 	min-width: 480px;
 	max-width: 768px;
 	margin: 0 auto;
@@ -132,7 +65,6 @@ header{
 	border-bottom: 1px solid #cc4b4b;
 	.part{
 		width: 99%;
-		padding: 1% 0.5% 1% 0.5%;
 		p{
 			font-size:14px;
 			text-indent: 28px;
