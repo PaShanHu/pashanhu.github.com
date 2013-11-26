@@ -17,6 +17,8 @@ postDate: 2013-11-19
 ####说明
 
 感谢[@riku](http://wowubuntu.com/markdown/)翻译的简体中文版 **Markdown 语法说明** 。
+<hr/>
+<br/>
 
 ###Markdown是什么？
 
