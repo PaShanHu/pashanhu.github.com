@@ -14,6 +14,10 @@ postDate: 2013-11-19
 	<div class='time'><span>{{ page.postDate }}</span></div>
 </section>
 
+####说明
+
+感谢[@riku](http://wowubuntu.com/markdown/)翻译的简体中文版 **Markdown 语法说明** 。
+
 ###Markdown是什么？
 
 Markdown 是一种易读易写的纯文本写作语言，以 HTML 发布，干净、通行。 
