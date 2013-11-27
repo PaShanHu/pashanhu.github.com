@@ -1,105 +1,21 @@
-@charset "UTF-8";
-/**
- * 
- * @authors Jerry
- * @date    2013-11-16 09:45:08
- * @version 0.0.1
- */
-@import 'css3.less';
-@font-face {
-	font-family: 'brandon';
-	src:url('../font/brandon-light.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'title';
-	src:url('../font/title-font.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-body{
-	font-family: 'Microsoft Yahei','SimHei',arial;
-	font-size: 14px;
-	color: #666;
-	min-width: 480px;
-	max-width: 768px;
-	margin: 0 auto;
-	border-top: 4px solid #cc4b4b;
-}
-header{
-	width: 100%;
-	padding: 12px 0 16px;
-	.title{
-		font-size: 24px;
-		color: #cc4b4b;
-		font-weight: normal;
-		text-align: center;
-	}
-}
-.post-info{
-	font-size: 14px;
-	color: #cc4b4b;
-	position: relative;
-	padding: 4px;
-	overflow: hidden;
-	border-bottom: 1px solid #cc4b4b;
-	.tags{
-		span{
-			padding: 0 8px;
-			text-align: left;
-			border-left: 1px solid #f0d6d6;
-			border-right: 1px solid #f0d6d6;
-		}
-		width: 70%;
-		float: left;
-	}
-	.time{
-		width: 30%;
-		float: left;
-		text-align: right;
-	}
-}
 .content{
-	padding: 12% 0;
-	background-image: url('../images/psh.png');
-	background-repeat: no-repeat;
-	background-position: left center;
-	background-size: 48%;
-	.part{
-		width: 48%;
-		padding: 1% 0 1% 48%;
-		p{
-			font-size:14px;
-			text-indent: 28px;
+	padding-bottom: 20px;
+	.title{
+		margin-top: 16px;
+		&:nth-child(n+2){
+			margin-top: 32px;
 		}
 	}
-}
-footer{
-	border-top: 1px solid #cc4b4b;
-	.foot-control{
-		text-align: right;
-		.font-icon{
-			position: relative;
-			display: inline-block;
-			width: 60px;
-			height: 24px;
-			background-color: #cc4b4b;
-			color: #fff;
-			font-size: 16px;
-			line-height: 24px;
-			text-align: center;
-		}
-		.icon-left{
-			&:after{
-				content: '\e626';
-			}
-		}
-		.icon-right{
-			&:after{
-				content: '\e627';
-			}
-		}
+	.part{
+		padding-left: 24px;
+	}
+	.indent{
+		padding: 0 24px;
+	}
+	.indent-second{
+		padding: 0 48px;
+	}
+	ol.indent,ul.indent{
+		padding: 0 48px;
 	}
 }

@@ -1,19 +1,9 @@
 ---
-layout: markdown
+layout: default
 title: Markdown学习与使用
 postDate: 2013-11-19
+tags: [markdown, 学习笔记]
 ---
-<header class='header'>
-	<h1 class='title'>{{ page.title }}</h1>
-</header>
-<section class='post-info'>
-	<div class='tags'>
-		<span>markdown</span>
-		<span>学习笔记</span>
-	</div>
-	<div class='time'><span>{{ page.postDate }}</span></div>
-</section>
-
 ####说明
 
 感谢[@riku](http://wowubuntu.com/markdown/)翻译的简体中文版 **Markdown 语法说明** 。
