@@ -5,7 +5,7 @@
 	padding: 0;
 	margin: 0;
 }
-article,header,footer,section{
+article,header,footer,section,aside{
 	display: block;
 }
 @font-face {
@@ -25,10 +25,10 @@ body{
 	font-family: 'Microsoft Yahei','SimHei',arial;
 	font-size: 16px;
 	color: #666;
-	min-width: 768px;
-	max-width: 960px;
+	width: 960px;
 	margin: 0 auto;
 	background-color: #f0f3f6;
+	position: relative;
 }
 .header{
 	width: 100%;
@@ -48,14 +48,20 @@ body{
 	padding: 4px;
 	overflow: hidden;
 	border-bottom: 1px solid #cc4b4b;
+	margin-bottom: 12px;
 	.tags{
 		.tag{
-			padding: 0 8px;
+			padding: 2px 8px;
 			text-align: left;
-			border-left: 1px solid #f0d6d6;
-			border-right: 1px solid #f0d6d6;
+			background-color: #fff;
 			margin-right: 4px;
 			float: left;
+			.transition(e('all .3s'));
+			cursor: pointer;
+			&:hover{
+				background-color: #cc4b4b;
+				color: #fff;
+			}
 		}
 		width: 70%;
 		float: left;
@@ -69,6 +75,7 @@ body{
 .footer{
 	width: 100%;
 	border-top: 1px solid #cc4b4b;
+	margin-top: 24px;
 	.foot-control{
 		text-align: right;
 		.font-icon{
@@ -99,8 +106,52 @@ body{
 			}
 		}
 		.icon-home{
+			float: left;
+			position: relative;
+			left: 50%;
+			margin-left: -30px;
 			&:after{
 				content: '\e647';
+			}
+		}
+	}
+}
+.side-menu{
+	position: fixed;
+	display: block;
+	right: 50%;
+	margin-right: -516px;
+	bottom: 100px;
+	width: 30px;
+	height: 160px;
+	.font-icon{
+		position: relative;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		background-color: #198880;
+		color: #f0f0f0;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		.transition(e('all 0.4s'));
+		.border-radius(50%);
+		cursor: pointer;
+		margin-bottom: 4px;
+		&:hover{
+			.border-radius(2px);
+			color: #fff;
+		}
+		&.icon-top{
+			opacity: 0;
+			&:after{
+				content: '\e634';
+			}
+		}
+		&.icon-bottom{
+			opacity: 0;
+			&:after{
+				content: '\e63b';
 			}
 		}
 	}

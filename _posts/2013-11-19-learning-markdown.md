@@ -3,6 +3,7 @@ layout: default
 title: Markdown学习与使用
 postDate: 2013-11-19
 tags: [markdown, 学习笔记]
+extraCss: /css/post.css
 ---
 ####说明
 
