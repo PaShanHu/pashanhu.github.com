@@ -6,7 +6,7 @@ tags: [ruby, jekyll]
 extraCss: /css/post.css
 ---
 <section class='content'>
-	<h3 class='title'>前言</h3>
+	<h3 class='foreword'>前言</h3>
 	<p>到今天共写了两篇博客，一篇helloworld上传了两次才成功；一篇markdown初学笔记用markdown写的，github编译总有错误。</p>
 	<p>想了一下还是要装ruby及jekyll，实现本地预览。毕竟github的错误反馈有点坑，效率也低，还是本地编译预览方便一点。</p>
 
@@ -55,7 +55,7 @@ extraCss: /css/post.css
 		</ol>
 	</div>
 
-	<h3>jekyll使用</h3>
+	<h3  class='title'>jekyll使用</h3>
 	<p>博文用的就是jekyll，现在讲一讲使用的方法。</p>
 	<div class='part'>
 		<h4>目录结构</h4>
@@ -101,13 +101,17 @@ extraCss: /css/post.css
 		</div>
 	</div>
 	<div class='part'>
+		<h4>本地编译与预览</h4>
+		<p>在项目所在文件夹，执行<code class='code'>jekyll serve</code>，项目被编译到项目根目录下的<code class='code'>_site/</code>文件夹下。</p>
+		<p>
+			访问<code class='code inline'>http://localhost:4000/</code>实现本地预览。
+		</p>
+		<p>如果想要监视文件，在发生变动时自动编译、重启服务器，则将上面的命令改成<code class='code'>jekyll serve -w</code></p>
+		<p>如果想要上传到git时忽略<code class='code'>_site/</code>下的编译文件，可在项目根目录下添加.gitignore文件，文件中添加一行<code class='code'>_site/</code>。</p>
+	</div>
+	<div class='part'>
 		<h4>使用中的错误及解决</h4>
 		<ol>
-			<li>已经存在的项目怎么本地编译并开启内置服务器？
-				<div>在项目所在文件夹，执行<code class='code'>jekyll serve</code></div>
-				<div>服务器开启，<code class='code inline'>http://localhost:4000/</code></div>
-				<div>执行<code class='code'>jekyll serve --watch</code>，监视文件变化，自动编译、重启服务器。</div>
-			</li>
 			<li>
 				windows下编码错误（<code class='code inline'>invalid byte sequence in GBK</code>）怎么办？
 				<div>参阅：<a href="http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html">Jekyll在Windows下面中文编码问题解决方案</a></div>
@@ -120,7 +124,7 @@ extraCss: /css/post.css
 		</ol>
 	</div>
 
-	<h3>更多</h3>
+	<h3  class='title'>更多</h3>
 	<p>因为才刚刚使用jekyll，可能有的地方理解有误。如果有误，请谅解。</p>
 	<p>在以后，可能会补充一篇jekyll的深入使用说明。 ;-)</p>
 </section>

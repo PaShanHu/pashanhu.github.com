@@ -34,7 +34,7 @@ body{
 	width: 100%;
 	border-top: 5px solid #cc4b4b;
 	padding: 12px 0 16px;
-	.title{
+	.main-title{
 		font-size: 26px;
 		color: #cc4b4b;
 		font-weight: normal;
@@ -45,31 +45,33 @@ body{
 	font-size: 14px;
 	color: #cc4b4b;
 	position: relative;
-	padding: 4px;
 	overflow: hidden;
 	border-bottom: 1px solid #cc4b4b;
 	margin-bottom: 12px;
+	.label{
+		padding: 2px 8px;
+		background-color: #fff;
+		.transition(e('all .3s'));
+		display: inline-block;
+		cursor: pointer;
+		&:hover{
+			background-color: #cc4b4b;
+			color: #fff;
+		}
+	}
 	.tags{
+		float: left;
+		.box-sizing(border-box);
 		.tag{
-			padding: 2px 8px;
 			text-align: left;
-			background-color: #fff;
 			margin-right: 4px;
 			float: left;
-			.transition(e('all .3s'));
-			cursor: pointer;
-			&:hover{
-				background-color: #cc4b4b;
-				color: #fff;
-			}
 		}
-		width: 70%;
-		float: left;
 	}
 	.time{
-		width: 30%;
-		float: left;
-		text-align: right;
+		position: absolute;
+		right: 0;
+		top: 2px;
 	}
 }
 .footer{
@@ -91,9 +93,12 @@ body{
 			.transition(e('all 0.4s'));
 			cursor: pointer;
 			&:hover{
-				color: #cc4b4b;
 				background-color: #fff;
+				color: #cc4b4b;
 			}
+		}
+		a.font-icon{
+			margin-top: 0;
 		}
 		.icon-left{
 			&:after{
@@ -105,15 +110,6 @@ body{
 				content: '\e627';
 			}
 		}
-		.icon-home{
-			float: left;
-			position: relative;
-			left: 50%;
-			margin-left: -30px;
-			&:after{
-				content: '\e647';
-			}
-		}
 	}
 }
 .side-menu{
@@ -121,7 +117,7 @@ body{
 	display: block;
 	right: 50%;
 	margin-right: -516px;
-	bottom: 100px;
+	top: 50%;
 	width: 30px;
 	height: 160px;
 	.font-icon{
@@ -129,8 +125,8 @@ body{
 		display: inline-block;
 		width: 30px;
 		height: 30px;
-		background-color: #198880;
-		color: #f0f0f0;
+		background-color: #fff;
+		color: #cc4b4b;
 		font-size: 20px;
 		line-height: 30px;
 		text-align: center;
@@ -140,7 +136,6 @@ body{
 		margin-bottom: 4px;
 		&:hover{
 			.border-radius(2px);
-			color: #fff;
 		}
 		&.icon-top{
 			opacity: 0;
@@ -152,6 +147,14 @@ body{
 			opacity: 0;
 			&:after{
 				content: '\e63b';
+			}
+		}
+		&.icon-home{
+			background-color: #cc4b4b;
+			color: #fff;
+			margin-left: 0;
+			&:after{
+				content: '\e647';
 			}
 		}
 	}
