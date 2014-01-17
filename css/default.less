@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import 'common.less';
-
 *{
 	padding: 0;
 	margin: 0;
@@ -19,7 +18,7 @@ article,header,footer,section,aside{
 	src:url('../font/title-font.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-}
+} 
 
 body{
 	font-family: 'Microsoft Yahei','SimHei',arial;
@@ -61,10 +60,13 @@ body{
 	}
 	.tags{
 		float: left;
+		width: 100%;
+		overflow: hidden;
+		min-height: 25px;
 		.box-sizing(border-box);
 		.tag{
 			text-align: left;
-			margin-right: 4px;
+			margin-right: 2px;
 			float: left;
 		}
 	}
@@ -158,4 +160,8 @@ body{
 			}
 		}
 	}
+}
+pre code{
+	padding-left: 4px;
+	border-left: 6px solid #444;
 }

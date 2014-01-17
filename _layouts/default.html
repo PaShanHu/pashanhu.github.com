@@ -19,9 +19,7 @@
 		</header>
 		<section class='post-info'>
 			<div class='tags'>
-				{% for tag in page.tags %}
-	    　　　　　　<span class='tag label'>{{tag}}</span>
-	    　　　　{% endfor %}
+				{% for tag in page.tags %}<span class='tag label'>{{tag}}</span>{% endfor %}
 			</div>
 			<div class='time'><span class='label'>{{ page.postDate }}</span></div>
 		</section>
