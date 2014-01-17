@@ -56,6 +56,6 @@ require(['jquery','easing'],function($){
 		});
 
 		/*box-shadow*/
-		//$(document.body).wrapInner('<div class="main-wrapper"></div>');
+		$(document.body).wrapInner('<div class="main-wrapper"></div>');
 	});
 });
