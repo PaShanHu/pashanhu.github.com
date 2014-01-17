@@ -12,9 +12,47 @@ extraJs: [/js/page/hight.js]
 
 本系列文章是学习jQuery源码的笔记，基于网络的各种教程与自己的理解而写（不会覆盖到每个点，可能存在错误），一来是记录学习成果;)，以后要用到时能方便找到；二来也帮助一下需要的人。
 
-###
+###jQuery选择器入门
+
+选择器，是jQuery的基石。
+
+我相信，jQuery如此流行的最重要原因就是它强大而便捷的选择器。全面的css/css3语法支持，准确定位到每一个元素，jQuery极大地提高了获取、筛选元素的效率。
+
+####从正则rquickExpr说起
+
+说高效强大莫如正则，jQuery中运用了大量的正则来判断、切分字符串。现在说一说选择器中用到的rquickExpr。
+
+    rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
+
+分解一下：
+
+1.  `|`之前：`^(?:\s*(<[\w\W]+>)[^>]*`
+
+    *   \s* : 匹配任何空白字符，包括空格、制表符、换页符等等 零次或多次
+    *   [\w\W]+ : 匹配'[A-Za-z0-9_]'或[^A-Za-z0-9_]' 一次或多次
+    *   [^>]：除了>的任意字符 零次或多次
+
+    这半截是匹配 "<p>"这样的，前面可加任意空白符，"<>"内可以是任意字符，后面可以是任意字符。
+
+2.  `|`之后：#([\w-]*))$/
+
+    匹配以#号开始，'[A-Za-z0-9_-]'出现任意次结尾的字符串。
+
+例子：
+
+    rquickExpr.exec(' < > hi')  // 输出  [" < > hi", "< >", undefined]
+
+    rquickExpr.exec(' <p>text</p>')  // 输出  [" <p>text</p>", "<p>text</p>", undefined]
+
+    rquickExpr.exec('#hi-hello')  // 输出  ["#hi-hello", undefined, "hi-hello"]
+
+    rquickExpr.exec('#    hi-hello')  // 输出  null
+
+综合一下，rquickExpr就是匹配html标记（前后可有空白）或者"#id"形式的id（前后不可空白）。
 
 ####init
+
+init其实是选择器的第一道接口，本身处理一些简单的选择器，更复杂的转交Sizzle来处理。
 
     init: function( selector, context, rootjQuery ) {
         
@@ -123,7 +161,15 @@ extraJs: [/js/page/hight.js]
 
 **分析：**
 
-1.  
+init按参数selector来分别处理。
+
+1.  首先处理 `"",null,undefined,false` 返回this ，增加程序的健壮性
+2.  其次处理字符串
+3.  处理DOMElement，把context，this[0]置为selector（就是dom元素），设置length属性为1，返回this
+4.  处理function。selector是function，其实就是把该函数绑定到document.ready事件。
+5.  最后处理selector本身就是jQuery对象，那么复制一些属性即可。
+
+具体分析selector是字符串怎么处理的。
 
 ###结束
 
