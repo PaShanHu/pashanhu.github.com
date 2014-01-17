@@ -12,6 +12,7 @@ require(['jquery','easing'],function($){
 	$(function(){
 		console.log('start')
 		var App={};
+
 		/*dynamic load js*/
 		var $script=$('script[data-type=extraJs]');
 		App.jsUrls=[];
@@ -20,7 +21,8 @@ require(['jquery','easing'],function($){
 			App.jsUrls[index]=src;
 			$.getScript(src);
 		})
-		console.log(App.jsUrls)
+		
+
 		/*backto top,to bottom*/
 		App.$backToTop=$('.back-to-top');
 		App.$toBottom=$('.to-bottom');
@@ -52,5 +54,8 @@ require(['jquery','easing'],function($){
 				scrollTop:$(document).height()-$window.height()
 			},1000,'easeInOutCirc');
 		});
+
+		/*box-shadow*/
+		//$(document.body).wrapInner('<div class="main-wrapper"></div>');
 	});
 });

@@ -50,7 +50,7 @@ extraJs: [/js/page/hight.js]
 
 综合一下，rquickExpr就是匹配html标记（前后可有空白）或者"#id"形式的id（前后不可空白）。
 
-####init
+####init函数分析
 
 init其实是选择器的第一道接口，本身处理一些简单的选择器，更复杂的转交Sizzle来处理。
 
@@ -159,9 +159,11 @@ init其实是选择器的第一道接口，本身处理一些简单的选择器�
         return jQuery.makeArray( selector, this );
     },
 
+<br/>
+
 **分析：**
 
-init按参数selector来分别处理。
+*init按参数selector来分别处理。*
 
 1.  首先处理 `"",null,undefined,false` 返回this ，增加程序的健壮性
 2.  其次处理字符串
@@ -169,8 +171,40 @@ init按参数selector来分别处理。
 4.  处理function。selector是function，其实就是把该函数绑定到document.ready事件。
 5.  最后处理selector本身就是jQuery对象，那么复制一些属性即可。
 
-具体分析selector是字符串怎么处理的。
+<br/>
+
+*具体分析selector是字符串怎么处理的。*
+
+1.  填充match数组
+    
+    *   以`<`开始，`>`结尾 ，长度>=3，假设就是html标签，不用正则检查，直接match = [ null, selector, null ];
+    *   否则`match = rquickExpr.exec( selector );`
+
+2.  如果match存在并且  match[1]存在或者参数context不存在，则，
+
+    *   如果是match[1]存在（说明是HTML标记），用`jQuery.merge`把match[1]转换而来的dom元素（组）合并到this。
+
+        如果match[1]是纯HTML标签（如`<div></div>`），并且context是纯js对象，那么，这就是这种形式了：`$(html, props)`。这是把DOM属性（property）添加到该DOM。
+
+        比如：`$('<body>',{width:'100px'})`，那么返回：`[<body style=​"width:​ 100px;​">​</body>​]`，即创建一个新的dom元素body（与当前文档中的body没有关系）。当然，这个"100px"也可以是函数。
+
+        最后返回this。**其实是用HTML标记创建了dom元素添加到this，然后返回包装过的jQuery对象this。**
+
+    *   match[1]不存在（说明context不存在），这是selector是id形式了。使用`document.getElementById`来获取该dom元素并赋给this[0]，设置this.context等属性后返回this。
+
+
+3.  match不存在，说明不是HTML标记或ID表达式，即是复杂表达式。
+
+    *   如果context不存在或者context是jQuery对象：
+
+            return ( context || rootjQuery ).find( selector );
+
+    *   否则
+
+            return this.constructor( context ).find( selector );
+
+    这两种情况调用了Sizzle来处理。（`jQuery.find = Sizzle;`）
 
 ###结束
 
-本篇是jQuery动画模块的前置模块队列queue，代码不多，也简单。下一篇正式分析jQuery的动画。
+本篇是选择器的初步介绍，或者说接触到了选择器，其实都是一些简单的selector处理，处理复杂的selector的Sizzle只是露了个面。下一章开始介绍Sizzle。
