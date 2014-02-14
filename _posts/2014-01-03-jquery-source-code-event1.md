@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-事件1——API与事件体系
-postDate: 2013-01-03
+postDate: 2014-01-03
 tags: [jQuery, source code, event]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]

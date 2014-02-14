@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-动画
-postDate: 2013-01-13
+postDate: 2014-01-13
 tags: [jQuery, source code, queue]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]

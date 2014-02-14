@@ -54,8 +54,5 @@ require(['jquery','easing'],function($){
 				scrollTop:$(document).height()-$window.height()
 			},1000,'easeInOutCirc');
 		});
-
-		/*box-shadow*/
-		$(document.body).wrapInner('<div class="main-wrapper"></div>');
 	});
 });

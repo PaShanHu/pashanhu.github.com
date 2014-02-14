@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 学习jQuery源码-选择器1
-postDate: 2013-01-17
+title: 学习jQuery源码-选择器1——从init函数开始的初步分析
+postDate: 2014-01-17
 tags: [jQuery, source code, selector]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]
@@ -32,29 +32,35 @@ extraJs: [/js/page/hight.js]
     *   [\w\W]+ : 匹配'[A-Za-z0-9_]'或[^A-Za-z0-9_]' 一次或多次
     *   [^>]：除了>的任意字符 零次或多次
 
-    这半截是匹配 "<p>"这样的，前面可加任意空白符，"<>"内可以是任意字符，后面可以是任意字符。
+    这半截是匹配 `<p>` 这样的，前面可加任意空白符，`<>`内可以是任意字符，后面可以是任意字符。
 
-2.  `|`之后：#([\w-]*))$/
+2.  `|`之后：`#([\w-]*))$/`
 
-    匹配以#号开始，'[A-Za-z0-9_-]'出现任意次结尾的字符串。
+    匹配 以`#`号开始，结尾是`[A-Za-z0-9_-]`出现任意次，如 `#idExpress`。
 
 例子：
 
-    rquickExpr.exec(' < > hi')  // 输出  [" < > hi", "< >", undefined]
+    rquickExpr.exec(' < > hi');  
+    // 输出  [" < > hi", "< >", undefined]
 
-    rquickExpr.exec(' <p>text</p>')  // 输出  [" <p>text</p>", "<p>text</p>", undefined]
+    rquickExpr.exec(' <p>text</p>');  
+    // 输出  [" <p>text</p>", "<p>text</p>", undefined]
 
-    rquickExpr.exec('#hi-hello')  // 输出  ["#hi-hello", undefined, "hi-hello"]
+    rquickExpr.exec('#hi-hello');  
+    // 输出  ["#hi-hello", undefined, "hi-hello"]
 
-    rquickExpr.exec('#    hi-hello')  // 输出  null
+    rquickExpr.exec('#    hi-hello');  
+    // 输出  null
 
-综合一下，rquickExpr就是匹配html标记（前后可有空白）或者"#id"形式的id（前后不可空白）。
+*综合一下，rquickExpr就是匹配html标记（`<`前可有空白，`>`后可以有任意字符）或者"#id"形式的id表达式（前后不可空白）。*
 
-####init函数分析
+####jQuery.fn.init函数分析
 
-init其实是选择器的第一道接口，本身处理一些简单的选择器，更复杂的转交Sizzle来处理。
+`jQuery.fn.init`其实是选择器的第一道接口，本身处理一些简单的选择器，更复杂的转交Sizzle来处理。
 
-    init: function( selector, context, rootjQuery ) {
+    // jQuery.fn.init函数
+    
+    init : function( selector, context, rootjQuery ) {
         
         var match, elem;
 
@@ -157,53 +163,66 @@ init其实是选择器的第一道接口，本身处理一些简单的选择器�
         }
 
         return jQuery.makeArray( selector, this );
-    },
+    }
 
 <br/>
 
 **分析：**
 
-*init按参数selector来分别处理。*
+*   init分析参数selector并做不同处理：
 
-1.  首先处理 `"",null,undefined,false` 返回this ，增加程序的健壮性
-2.  其次处理字符串
-3.  处理DOMElement，把context，this[0]置为selector（就是dom元素），设置length属性为1，返回this
-4.  处理function。selector是function，其实就是把该函数绑定到document.ready事件。
-5.  最后处理selector本身就是jQuery对象，那么复制一些属性即可。
+    1.  首先处理 `"",null,undefined,false` 返回this ，增加程序的健壮性；
+    2.  其次处理字符串（较复杂，分析见下面）；
+    3.  处理DOMElement，把context，this[0]置为selector（就是dom元素），设置length属性为1，返回this；
+    4.  处理function。selector是function，其实就是把该函数绑定到document.ready事件；
+    5.  最后处理selector本身就是jQuery对象，那么复制一些属性即可。
 
-<br/>
+*   selector是字符串的具体处理：
 
-*具体分析selector是字符串怎么处理的。*
+    1.  构造填充match数组
+        
+        *   以`<`开始，`>`结尾 ，长度>=3，就可以假设selector是html标签，省略正则检查，直接`match = [ null, selector, null ];`
+        *   否则对selector正则处理：`match = rquickExpr.exec( selector );`
 
-1.  填充match数组
-    
-    *   以`<`开始，`>`结尾 ，长度>=3，假设就是html标签，不用正则检查，直接match = [ null, selector, null ];
-    *   否则`match = rquickExpr.exec( selector );`
+    2.  判断分析match并分别处理。
 
-2.  如果match存在并且  match[1]存在或者参数context不存在，则，
+        jQuery把selector是字符串**按3种情况**来处理，当然这是分析由selector处理而来的match数组得出的3种情况。
 
-    *   如果是match[1]存在（说明是HTML标记），用`jQuery.merge`把match[1]转换而来的dom元素（组）合并到this。
+        我们看第一个if分支，`if ( match && (match[1] || !context) )`，这行代码很有意思：
 
-        如果match[1]是纯HTML标签（如`<div></div>`），并且context是纯js对象，那么，这就是这种形式了：`$(html, props)`。这是把DOM属性（property）添加到该DOM。
+        如果match存在，并且match[1]存在或者context不存在——把这个绕口的表述转换一下：当selector是HTML标记 或者 selector是id表达式但没有上下文。
 
-        比如：`$('<body>',{width:'100px'})`，那么返回：`[<body style=​"width:​ 100px;​">​</body>​]`，即创建一个新的dom元素body（与当前文档中的body没有关系）。当然，这个"100px"也可以是函数。
+        很明显，判断排除了一种情况：selector是id表达式，但有上下文。排除的原因应该很好理解，可以[看下面的分析](#analysis)。
 
-        最后返回this。**其实是用HTML标记创建了dom元素添加到this，然后返回包装过的jQuery对象this。**
+        再细分一下：
 
-    *   match[1]不存在（说明context不存在），这是selector是id形式了。使用`document.getElementById`来获取该dom元素并赋给this[0]，设置this.context等属性后返回this。
+        *   如果是match[1]存在（说明是HTML标记），用`jQuery.merge`把match[1]转换而来的dom元素（组）合并到this，然后返回this。**其实就是用selector字符串（是HTML标记）来创建dom元素并添加到this，然后返回此jQuery对象this。**
 
+            不过，要注意如果match[1]是纯HTML标签（如`<div></div>`），并且context是纯js对象，即这种形式：`$(html, props)`，**这是把dom属性（property）添加到selector代表的dom节点。**
 
-3.  match不存在，说明不是HTML标记或ID表达式，即是复杂表达式。
+            比如：`$('<body>',{width:'100px'})`，那么返回：`[<body style=​"width:​ 100px;​">​</body>​]`，即创建一个新的dom元素body（与当前文档中的body没有关系）。
 
-    *   如果context不存在或者context是jQuery对象：
+            当然，这个"100px"也可以是函数。比如 `context:{width:function(){return "100px"}}`，那么将执行 this.width(context.width())，即this.width("100px")。
 
-            return ( context || rootjQuery ).find( selector );
+        *   match[1]不存在（说明context不存在），这是selector是id表达式了。
 
-    *   否则
+            使用`document.getElementById`来获取该dom元素并赋给this[0]，设置this.context等属性后返回this。
 
-            return this.constructor( context ).find( selector );
+            **<span id="analysis">这里就可以解释一下上面为什么要排除selector是id表达式时有上下文的情况，因为有上下文就不能简单的通过`document.getElementById`来获取元素，必须判断上下文是否存在，指定上下文下是否有该id元素。</span>**
 
-    这两种情况调用了Sizzle来处理。（`jQuery.find = Sizzle;`）
+    3.  下面2个else就是剩下的2种情况，但都是match不存在，所以合在一起分析。
+
+        match不存在说明不是HTML标记或ID表达式，即selector是复杂的表达式。
+
+        *   如果context不存在或者context是jQuery对象：
+
+                return ( context || rootjQuery ).find( selector );
+
+        *   否则
+
+                return this.constructor( context ).find( selector );
+
+        这<span id="selector1-init">两种情况</span>调用了Sizzle（`jQuery.find = Sizzle;`）来处理。当然，更具体的分析在选择器第三部分[选择器3-前半部分流程](/2014/01/19/jquery-source-code-selector3.html#selector3-sizzle)。
 
 ###结束
 

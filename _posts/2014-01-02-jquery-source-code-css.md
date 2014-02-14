@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-样式操作之css函数及其钩子
-postDate: 2013-01-02
+postDate: 2014-01-02
 tags: [jQuery, source code, css]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]

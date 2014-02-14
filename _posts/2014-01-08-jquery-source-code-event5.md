@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-事件5——模拟事件
-postDate: 2013-01-08
+postDate: 2014-01-08
 tags: [jQuery, source code, event]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]

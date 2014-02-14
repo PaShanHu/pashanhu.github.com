@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-样式操作之addClass
-postDate: 2013-01-01
+postDate: 2014-01-01
 tags: [jQuery, source code, addClass]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]

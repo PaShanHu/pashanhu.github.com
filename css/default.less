@@ -26,16 +26,58 @@ body{
 	color: #666;
 	width: 960px;
 	margin: 0 auto;
-	background-color: #f0f3f6;
+	background-color: #e0e0e0;
+	background-image: url('../images/main/noise.gif');
+	background-repeat: repeat;
 	position: relative;	
 }
 div.main-wrapper{
 	.box-shadow(e('0 0 8px rgba(0,0,0,.6)'));
+	background-color: #fff;
 	width: 100%;
-	padding: 0 1.6% 0 2.4%;
-	overflow: hidden;
+	padding: 0 36px 0 36px;
 	.box-sizing(border-box);
-	border-top: 5px solid #cc4b4b;
+	border-top: 6px solid #000;
+	position: relative;
+	margin-bottom: 36px;
+	&:before,&:after{
+		content: "";
+		position: absolute;
+		z-index: -1;
+		bottom: 10px;
+		width: 30%;
+		height: 80px;
+		.box-shadow(e('0 15px 14px rgba(0,0,0,.36)'));
+	}
+	&:before{
+		left: 5px;
+		.transform(rotate(-3deg));
+	}
+	&:after{
+		right: 5px;
+		.transform(rotate(3deg));
+	}
+	.top-border{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		overflow: hidden;
+		.border{
+			width: 33.333%;
+			height: 4px;
+			float: left;
+		}
+		.yellow-border{
+			background-color: #fdb45c;
+		}
+		.red-border{
+			background-color: #cc4b4b;
+		}
+		.green-border{
+			background-color: #198880;
+		}
+	}
 	header{
 		border-top: none;
 	}
@@ -43,31 +85,35 @@ div.main-wrapper{
 .header{
 	width: 100%;
 	border-top: 5px solid #cc4b4b;
-	padding: 12px 0 16px;
-	.main-title{
-		font-size: 26px;
+	padding: 12px 0 0;
+	.time{
+		font-size: 14px;
 		color: #cc4b4b;
+		border-bottom: 1px solid #cc4b4b;
+	}
+	.main-title{
+		font-size: 30px;
 		font-weight: normal;
 		text-align: center;
+		&:after{
+			content: '';
+			border-bottom: 1px solid #bbb;
+			display: block;
+			width: 120px;
+			margin: 16px auto 0 auto;
+			text-align: center;
+		}
 	}
 }
 .post-info{
 	font-size: 14px;
-	color: #cc4b4b;
 	position: relative;
 	overflow: hidden;
-	border-bottom: 1px solid #cc4b4b;
 	margin-bottom: 12px;
 	.label{
-		padding: 2px 8px;
-		background-color: #fff;
-		.transition(e('all .3s'));
+		padding: 2px 4px 2px 16px;
 		display: inline-block;
-		cursor: pointer;
-		&:hover{
-			background-color: #cc4b4b;
-			color: #fff;
-		}
+		color: #666;
 	}
 	.tags{
 		float: left;
@@ -78,13 +124,21 @@ div.main-wrapper{
 		.tag{
 			text-align: left;
 			margin-right: 2px;
-			float: left;
+			float: right;
+			.transition(e('all .3s'));
+			position: relative;
+			&:before{
+				position: absolute;
+				left: 0;
+				line-height: 24px;
+				top: 0;
+				content: '\e61b';
+				font-family: 'icomoon';
+			}
+			&:hover{
+				color: #cc4b4b;
+			}
 		}
-	}
-	.time{
-		position: absolute;
-		right: 0;
-		top: 2px;
 	}
 }
 .footer{
@@ -96,31 +150,29 @@ div.main-wrapper{
 		.font-icon{
 			position: relative;
 			display: inline-block;
-			width: 60px;
-			height: 24px;
+			width: 36px;
+			height: 36px;
 			background-color: #cc4b4b;
 			color: #fff;
 			font-size: 16px;
-			line-height: 24px;
+			line-height: 36px;
 			text-align: center;
 			.transition(e('all 0.4s'));
 			cursor: pointer;
+			margin: 12px 0 0 0;
 			&:hover{
-				background-color: #fff;
+				background-color: #efefef;
 				color: #cc4b4b;
 			}
 		}
-		a.font-icon{
-			margin-top: 0;
-		}
 		.icon-left{
 			&:after{
-				content: '\e626';
+				content: '\e635';
 			}
 		}
 		.icon-right{
 			&:after{
-				content: '\e627';
+				content: '\e63c';
 			}
 		}
 	}
@@ -175,5 +227,5 @@ div.main-wrapper{
 }
 pre code{
 	padding-left: 4px;
-	border-left: 6px solid #444;
+	border: 1px solid #ccc;
 }

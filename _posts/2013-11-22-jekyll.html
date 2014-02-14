@@ -116,10 +116,16 @@ extraCss: /css/post.css
 				windows下编码错误（<code class='code inline'>invalid byte sequence in GBK</code>）怎么办？
 				<div>参阅：<a href="http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html">Jekyll在Windows下面中文编码问题解决方案</a></div>
 				<div>jekyll-1.3中，把<code class='code block'>self.content = File.read_with_options(File.join(base, name),<br/> #merged_file_read_opts(opts))</code>改为<code class='code block'>self.content = File.read(File.join(base, name),:encoding=>"utf-8")</code></div>
+				<div><b>新添加：</b>代码在C:\Ruby193\lib\ruby\gems\1.9.1\gems\jekyll-1.4.2\lib\jekyll下的convertible.rb文件中。</div>
 			</li>
 			<li>
 				<span><code class='code inline'>jekyll serve --watch</code>错误</span>
 				<div>google后发现都基本没说清。感谢<a href="http://stackoverflow.com/questions/16232960/guard-wont-load-wdm/16245129#16245129">stackoverflow的<b>Josh Infiesto</b></a>，虽然不是按他的方法做的，但他的解答使我意识到可能没有安装wdm模块，<code class='code inline'>gem install wdm</code>，问题解决。</div>
+			</li>
+			<li>
+				<span><code class='code inline'>jekyll serve</code>错误</span>
+				<div>这个错误是补充的，重装系统，然后按流程重装jekyll时发现了一个新错误：<code class='code inline'>Generating... error: Invalid argument - D:/GitHub/jekyll_demo/blog/pashanhu.github.com/_site/D:. Use --trace to view backtrace</code></div>
+				<div>经搜索，是jekyll版本过高导致，卸载1.4.3，重装1.4.2，问题解决。</div>
 			</li>
 		</ol>
 	</div>

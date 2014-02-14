@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-开篇
-postDate: 2013-01-16
+postDate: 2014-01-16
 tags: [jQuery, source code, struct]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]

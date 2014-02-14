@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-队列
-postDate: 2013-01-10
+postDate: 2014-01-10
 tags: [jQuery, source code, queue]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]

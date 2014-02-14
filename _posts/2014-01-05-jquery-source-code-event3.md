@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习jQuery源码-事件3——委托设计
-postDate: 2013-01-05
+postDate: 2014-01-05
 tags: [jQuery, source code, event]
 extraCss: [/css/md.css, /css/github.css]
 extraJs: [/js/page/hight.js]
