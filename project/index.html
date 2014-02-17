@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Jerry Yang's Blog
+title: Blog -- 技术
 ---
 <aside>
     <div class='wrapper'>
@@ -24,22 +24,21 @@ title: Jerry Yang's Blog
             <h3>文章分类</h3>
             <div class='categories'>
                 {% for category in site.categories %}
-                    <a class='category' href="/{{ category | first }}"> 
                         {% if category contains "opinion" %}
-                            <span>生活感想</span>
+                            <a class='category' href="/{{ category | first }}"><span class='active'>生活感想</span>
                         {% endif %}
                         {% if category contains "project" %}
-                            <span>项目</span>
+                            <a class='category active' href="/{{ category | first }}"><span>项目</span>
                         {% endif %}
                         {% if category contains "tech" %}
-                            <span>技术文章</span>
+                            <a class='category' href="/{{ category | first }}"><span>技术文章</span>
                         {% endif %}
                         <i>{{ category | last | size }}</i>
                     </a>
                 {% endfor %}
                 {% if site.categories contains "project" %}
                 {% else %}
-                    <a class='category' href="/project/"><span>项目</span><i>2</i></a>
+                    <a class='category active' href="/project/"><span>项目</span><i>2</i></a>
                 {% endif %}
             </div>
         </div>
@@ -47,7 +46,7 @@ title: Jerry Yang's Blog
             <h3>文章标签</h3>
             <div class='tags'>
                 {% for tag in site.tags %}
-                    <a class='tag' href="/show_by_tag.html?tag={{ tag[0] }}"> {{ tag[0] }}</a>
+                    <a class='tag' href="/{{ tag | first }}/{{ tag | last | size }}"> {{ tag[0] }}</a>
                 {% endfor %}
             </div>
         </div>
@@ -65,31 +64,23 @@ title: Jerry Yang's Blog
     <div class='wrapper'>      
         <div class='content'>
             <ul class='posts'>
-        　　　　{% for post in paginator.posts %}
-        　　　　　　<li>
-                        <h3 class='post-title'><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                        <p class='post-info'><span class='post-time'>{{ post.date | date: "%Y-%m-%d" }}</span></p>
-                        <div class='post-description'>{{ post.description }}</div>
-                    </li>
-        　　　　{% endfor %}
+    　　　　　　<li>
+                    <h3 class='post-title'><a href="http://pashanhu.github.io/jQuery-datepicker/">jQuery插件——datepicker</a></h3>
+                    <p class='post-info'><span class='post-time'>2013-10-20</span></p>
+                    <div class='post-description'>
+                        <p>jQuery的日历插件。</p>
+                        <p>本插件与jQuery协同工作，主要是一个弹出框，共用户选择日期，并为日期提供格式化，提高用户的日期输入体验，一定程度防止非法输入。另外，插件比一般日期插件增加了直接选择月份、年份的功能，这算是亮点。</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class='post-title'><a href="http://pashanhu.github.io/jQuery-progressbar/">jQuery插件——progressbar</a></h3>
+                    <p class='post-info'><span class='post-time'>2013-10-20</span></p>
+                    <div class='post-description'>
+                        <p>jQuery的进度条插件。</p>
+                        <p>学习jQuery插件编程的第一个作品，主要是用于表现事件步骤之类的，与传统的进度条稍有不同。</p>
+                    </div>
+                </li>
         　　</ul>
-            <div class='pager'>
-                {% if paginator.previous_page %}
-                    <a class="page-indicator" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">上一页</a>
-                {% endif %}
-                {% for page in (1..paginator.total_pages) %}
-                    {% if page == paginator.page %}
-                      <span class="active page-num">{{ page }}</span>
-                    {% elsif page == 1 %}
-                      <a class="page-num" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-                    {% else %}
-                      <a class="page-num" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-                    {% endif %}
-                {% endfor %}
-                {% if paginator.next_page %}
-                    <a class="page-indicator" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
-                {% endif %}
-            </div>
         </div>
     </div>
 </article>

@@ -1,0 +1,100 @@
+---
+layout: home
+title: Jerry Yang's Blog
+---
+<!-- <header>
+    <div class='wrapper'>
+        <div id='logo'></div>
+        <ul id='menu'>
+            <li><h3 class='active'>Web Technology</h3></li>
+            <li><h3>Life &amp; Opinion</h3></li>
+            <li><h3>Project</h3></li>
+        </ul>
+    </div>
+</header> -->
+<article>
+    <div class='wrapper'>      
+        <div class='content'>
+            <ul class='posts'>
+        　　　　{% for post in paginator.posts %}
+        　　　　　　<li>
+                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                        <p>{{ post.date | date_to_string }}</p>
+                    </li>
+        　　　　{% endfor %}
+        　　</ul>
+            <div>
+                {% if paginator.previous_page %}
+                    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">上一页</a>
+                {% endif %}
+                {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                      <span class="active">{{ page }}</span>
+                    {% elsif page == 1 %}
+                      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}{{ site.paginate_path }}</a>
+                    {% else %}
+                      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}{{ site.paginate_path | prepend: site.baseurl | replace: ':num', page }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if paginator.next_page %}
+                    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</article>
+<aside>
+    <div class='wrapper'>
+        <div class='block-content' id='logo'>
+            
+        </div>
+        <div class='block-content' id='author-info'>
+            <div class='user'>
+                <img src="images/h1.jpg">
+                <ul class='contact'>
+                    <li><a class='font-icon mail' href='mailto:pashanhu6@hotmail.com'></a></li>
+                    <li><a class='font-icon git' href='https://github.com/PaShanHu'></a></li>
+                </ul>
+                <p>UI设计-前端-程序员</p>
+            </div>
+            <div class='description'>
+                <p>冠盖满京华，斯人独憔悴。</p>
+            </div>
+        </div>
+        <div class='block-content' id='categories'>
+            <h3>文章分类</h3>
+            <div class='categories'>
+                {% for category in site.categories %}
+                    <a href="/{{ category | first }}"> 
+                        {% if category contains "opinion" %}
+                            生活感想
+                        {% endif %}
+                        {% if category contains "project" %}
+                            项目
+                        {% endif %}
+                        {% if category contains "tech" %}
+                            技术文章
+                        {% endif %}
+                        {{ category | last | size }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='block-content' id='tags'>
+            <h3>文章标签</h3>
+            <div class='tags'>
+                {% for tag in site.tags %}
+                    <a href="/{{ tag | first }}/{{ tag | last | size }}"> {{ tag[0] }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='block-content' id='recent-post'>
+            <h3>最近3篇文章</h3>
+            <ol class='recent-post'>
+                {% for post in site.posts offset:0 limit:3 %}
+                    <li><a href="{{ post.url }}"> {{ post.title }}</a></li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</aside>
