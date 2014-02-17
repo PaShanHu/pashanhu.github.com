@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Blog -- 技术
+title: Blog -- 项目
 ---
 <aside>
     <div class='wrapper'>
@@ -38,7 +38,7 @@ title: Blog -- 技术
                 {% endfor %}
                 {% if site.categories contains "project" %}
                 {% else %}
-                    <a class='category active' href="/project/"><span>项目</span><i>2</i></a>
+                    <a class='category active' href="/project/"><span>项目</span><i>3</i></a>
                 {% endif %}
             </div>
         </div>
@@ -78,6 +78,15 @@ title: Blog -- 技术
                     <div class='post-description'>
                         <p>jQuery的进度条插件。</p>
                         <p>学习jQuery插件编程的第一个作品，主要是用于表现事件步骤之类的，与传统的进度条稍有不同。</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class='post-title'><a href="https://github.com/PaShanHu/HBlog">HBlog-以nodejs为基础的博客网站</a></h3>
+                    <p class='post-info'><span class='post-time'>2013-11-05</span></p>
+                    <div class='post-description'>
+                        <p>博客网站，nodejs+express+mongodb。</p>
+                        <p>本demo是学习nodejs的第一个实例。其实学node最初的教程是《Node.js开发指南》，这应该是一本非常不错的入门指南了，但书中demo用到的Express是2.x版本。Express3.0相比2.x变化很大，而我使用的也是3.0版本，导致代码各种错误，适配3.0的过程也算是耗费心力了。</p>
+                        <p>demo很简单，就是基本的多人博客网站，具备基本的注册登录、发表文章和评论等等。</p>
                     </div>
                 </li>
         　　</ul>
