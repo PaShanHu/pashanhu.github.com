@@ -38,7 +38,7 @@ title: Blog -- 项目
                 {% endfor %}
                 {% if site.categories contains "project" %}
                 {% else %}
-                    <a class='category active' href="/project/"><span>项目</span><i>3</i></a>
+                    <a class='category active' href="/project/"><span>项目</span><i>4</i></a>
                 {% endif %}
             </div>
         </div>
@@ -87,6 +87,15 @@ title: Blog -- 项目
                         <p>博客网站，nodejs+express+mongodb。</p>
                         <p>本demo是学习nodejs的第一个实例。其实学node最初的教程是《Node.js开发指南》，这应该是一本非常不错的入门指南了，但书中demo用到的Express是2.x版本。Express3.0相比2.x变化很大，而我使用的也是3.0版本，导致代码各种错误，适配3.0的过程也算是耗费心力了。</p>
                         <p>demo很简单，就是基本的多人博客网站，具备基本的注册登录、发表文章和评论等等。但demo对nodejs各方面都有用到，做完这个demo，对node也算有个比较完整的了解了。</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class='post-title'><a href="https://github.com/PaShanHu/PageScraper">PageScraper-以nodejs来抓取数据的Demo</a></h3>
+                    <p class='post-info'><span class='post-time'>2014-2-24</span></p>
+                    <div class='post-description'>
+                        <p>数据抓取的小Demo。</p>
+                        <p>主要用了cheerio模块来解析数据。</p>
+                        <p>本Demo抓取http://www.amazon.cn/网站某个产品列表页所有产品的链接，并抓取第一条链接对应产品的名称、价格、评论总数。</p>
                     </div>
                 </li>
         　　</ul>
