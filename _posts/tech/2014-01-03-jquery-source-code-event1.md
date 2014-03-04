@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-事件1——API与事件体系
 category: tech
 tags: [jQuery, source code, event]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第15章，是jQuery事件模块的第1部分。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

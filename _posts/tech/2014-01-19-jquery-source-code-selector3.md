@@ -3,7 +3,7 @@ layout: default
 title: 学习jQuery源码-选择器3——前半部分流程
 category: tech
 tags: [jQuery, source code, selector]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第4章，介绍了选择器的前半部分的流程。</p><p>本章是对前面2章的梳理归纳，一步一步来分析从jQuery.fn.init到tokenize之间发生了什么，jQuery都做了哪些处理。</p>
 ---

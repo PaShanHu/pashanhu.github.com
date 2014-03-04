@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-选择器2——tokenize
 category: tech
 tags: [jQuery, source code, selector]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第3章，重点是jQuery的选择器引擎——Sizzle的词法分析。</p><p>Sizzle解析CSS的机制，其实就是对选择器做词法分析，获取token序列，然后再进一步处理。本章就是来详细阐述这个词法分析的原理和过程。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-Callbacks
 category: tech
 tags: [jQuery, source code, callback]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第7章，主要内容是jQuery.Callbacks。</p><p>本章讲jQuery的回调（callback），从callback的API入手，深入源码，分析回调的内部实现。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

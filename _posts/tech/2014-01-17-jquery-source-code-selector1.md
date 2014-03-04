@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-选择器1——从init函数开始的初步分析
 category: tech
 tags: [jQuery, source code, selector]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第2章，本章是选择器的入门，主要讲了在init函数中是如何用到选择器的，以及一个简单的正则rquickExpr。</p><p>init函数（jQuery.fn.init）是创建jQuery时必然调用的函数，接收selector参数，该参数会传给Sizzle引擎来获取正确的DOM对象，本章会详细来分析阐述。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

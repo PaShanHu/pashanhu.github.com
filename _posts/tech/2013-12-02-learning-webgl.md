@@ -3,10 +3,8 @@ layout: default
 title: WebGL学习笔记（1）
 category: tech
 tags: [webgl, 3D, canvas, html5]
-extraCss: /css/post.css
 description: <p>HTML5带来了canvas标签，通过canvas我们可以动态绘制图形、图像、表格。而当这些与WebGL结合时，令人激动与期待的事情发生了。</p><p>欣赏了一些绚丽的demo，产生了学习WebGL的冲动，本章即是学习笔记系列的第一章。</p>
 ---
-####说明
 
 感谢[mozilla 的WebGL教程](https://developer.mozilla.org/en-US/docs/Web/WebGL/Getting_started_with_WebGL?redirectlocale=en-US&redirectslug=WebGL%2FGetting_started_with_WebGL)。
 

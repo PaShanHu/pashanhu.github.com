@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-开篇
 category: tech
 tags: [jQuery, source code]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第1章，是整个jQuery源码学习系列的开端。</p><p>jQuery是最流行的javascript框架，在世界前10000个访问最多的网站中，有超过55%在使用jQuery。研究jQuery源码即是出于工作考虑，也是因为对这个框架何以如此流行的好奇。</p><p>当然，源码解读不是闭门造车，是站在巨人肩膀上的学习。我参考了网上的一些文章，结合自己的实际学习使用的感受，才有了这个系列的文章。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

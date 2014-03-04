@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-css相关API解读
 category: tech
 tags: [jQuery, source code, queue]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第21章，补充了jQuery样式操作模块没有讲的地方，即一些简化的样式操作API。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

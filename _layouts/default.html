@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>{{page.title}}</title>
 		<script data-main='/js/main' src='/js/require.js'></script>
-		<link rel="stylesheet" type="text/css" href="{{ post.url }}/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="{{ post.url }}/css/article.css" />
 		{% for cssUrl in page.extraCss %}
 		    <link rel="stylesheet" href="{{ cssUrl }}">
 		{% endfor %}
@@ -16,19 +16,42 @@
 	<body>
 		<div class="main-wrapper">
 			<div class='top-border'>
-				<div class='red-border border'></div>
+				<!-- <div class='red-border border'></div>
 				<div class='green-border border'></div>
-				<div class='yellow-border border'></div>
+				<div class='yellow-border border'></div> -->
 			</div>
 			<header class='header'>
-				<div class='time'><span class='label'>{{ page.date | date: "%Y-%m-%d" }}</span></div>
-				<h1 class='main-title'>{{ page.title }}</h1>
+				<section id='article-info'>
+					<div id='time-zone'>
+						<span class='label day'>{{ page.date | date: "%d" }}</span>
+						<div id='time-wrapper'>
+							<span class='label month'>{{ page.date | date: "%b" }}</span>
+							<span class='label year'>{{ page.date | date: "%Y" }}</span>
+						</div>
+					</div>
+					<div id='post-info'>
+						{% assign part = {{page.tags.size | divided_by:2 }} %}
+						{% assign remainpart = {{page.tags.size | minus:part }} %}
+						<div class='tags top'>
+							{% for tag in page.tags limit:remainpart offset:part %}
+								<span class='tag label'>{{tag}}</span>
+							{% endfor %}
+						</div>
+						<div class='tags bottom'>
+							{% for tag in page.tags limit:part %}
+								<span class='tag label'>{{tag}}</span>
+							{% endfor %}
+						</div>
+					</div>
+				</section>
+				<section id='article-title'>
+					<h1 class='main-title'>{{ page.title }}</h1>
+					<div class='word-num'>
+						<p><b>字数：</b><span>{{ page.content | strip_html | strip_newlines | split: "" | size }}</span></p>
+						<p><b>作者：</b><span>Jerry</span></p>
+					</div>
+				</section>
 			</header>
-			<section class='post-info'>
-				<div class='tags'>
-					{% for tag in page.tags %}<span class='tag label'>{{tag}}</span>{% endfor %}
-				</div>
-			</section>
 			<aside class='side-menu shown'>
 				<span class='back-to-top font-icon icon-top'></span>
 				<a href="/" class='font-icon icon-home'></a>

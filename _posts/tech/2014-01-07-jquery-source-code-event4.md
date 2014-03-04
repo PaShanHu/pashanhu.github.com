@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-事件4——自定义事件
 category: tech
 tags: [jQuery, source code, event]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第18章，是jQuery事件模块的第4部分。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

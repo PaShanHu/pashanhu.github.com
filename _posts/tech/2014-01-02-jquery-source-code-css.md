@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-样式操作之css函数及其钩子
 category: tech
 tags: [jQuery, source code, css]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第14章，是jQuery样式操作分析的第2部分。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

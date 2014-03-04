@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-链式调用与回溯
 category: tech
 tags: [jQuery, source code]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第10章，主要分析jQuery的链式调用与回溯，重点分析其实现原理。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 

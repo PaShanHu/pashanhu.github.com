@@ -3,7 +3,7 @@ layout: default
 title: Markdown学习与使用
 category: tech
 tags: [Markdown]
-extraCss: /css/post.css
+extraCss: 
 description: <p>什么是Markdown？Markdown的语法是什么？较为详细地介绍Markdown的用法，并辅以实例。</p>
 ---
 ####说明

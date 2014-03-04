@@ -3,10 +3,8 @@ layout: default
 title: 怎么动态加载js？
 category: tech
 tags: [动态加载js, jQuery]
-extraCss: /css/post.css
 description: <p>要加载的js可能没法先行确定，或者只有运行时才知道要加载哪些js文件。本章讲了动态加载js或css文件的几种方法。</p>
 ---
-####说明
 
 感谢[Arnaud Leymet](http://stackoverflow.com/users/346005/arnaud-leymet)、[Evgeny](http://stackoverflow.com/users/110274/evgeny)和[rlemon](http://stackoverflow.com/users/829835/rlemon)在**Stack Overflow**的[Load JavaScript dynamically](http://stackoverflow.com/questions/7293344/load-javascript-dynamically)问题上的解答。这是我解决动态加载js问题的基础。
 

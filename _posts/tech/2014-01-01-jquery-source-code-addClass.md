@@ -3,11 +3,10 @@ layout: default
 title: 学习jQuery源码-样式操作之addClass
 category: tech
 tags: [jQuery, source code, css]
-extraCss: [/css/md.css, /css/github.css]
+extraCss: [/css/github.css]
 extraJs: [/js/page/hight.js]
 description: <p>jQuery源码学习笔记第13章，主要分析jQuery如何添加/删除/toggle样式类,当然，也算是jQuery样式操作模块的开端吧。</p>
 ---
-####声明
 
 感谢[Aaron的jQuery源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)。
 
